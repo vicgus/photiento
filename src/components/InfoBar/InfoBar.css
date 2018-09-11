@@ -1,0 +1,22 @@
+.RightBar {
+    width: 13vw;
+    height: 70vh;
+    right: 0px;
+    margin: 0 0 0 0;
+    background-color: azure;
+    display: inline-block;
+    position: fixed;
+    text-align: center;
+}
+
+.SelDiv {
+    border-top: gray solid 1px;
+    border-bottom: gray solid 1px;
+    top: 50%;
+    left: 50%;
+    width: 10vw;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: aquamarine;
+    position: absolute;
+}

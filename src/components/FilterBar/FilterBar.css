@@ -1,0 +1,30 @@
+.LeftBar {
+    width: 13vw;
+    height: 70vh;
+    left: 0px;
+    margin: 0 0 0 0;
+    background-color: azure;
+    display: inline-block;
+    text-align: center;
+    /* align-content: center; */
+}
+
+.SelDiv {
+    border-top: gray solid 1px;
+    border-bottom: gray solid 1px;
+    position: absolute;
+    width: 10vw;;
+    top: 50%;
+    left: 6.5%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: aquamarine;
+}
+
+.Search {
+    top: 0px;
+    position: absolute;
+    top: 20%;
+    left: 5.5%;
+    height: 20px;
+}

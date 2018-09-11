@@ -1,0 +1,12 @@
+.Main {
+    height: 70vh;
+    width: 74vw;
+    position: fixed;
+    left: 13vw;
+    display: inline-block;
+    background-color: yellow;
+}
+
+.ImgDiv {
+    height: 65vh;
+}

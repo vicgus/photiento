@@ -1,0 +1,28 @@
+.App {
+
+}
+
+.Header {
+  height: 15vh;
+  width: 100vw;
+  margin: 0 0 0 0;
+  top: 0px;
+  background-color: white;
+  text-align: center;
+  font-size: 20px;
+}
+
+.Footer {
+  height: 5vh;
+  width: 100vw;
+  margin: 0 0 0 0;
+  position: fixed;
+  bottom: 0px;
+  background-color: white;
+  text-align: center;
+}
+
+.h1 {
+  text-align: center;
+}
+
