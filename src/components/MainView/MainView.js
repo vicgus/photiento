@@ -1,15 +1,23 @@
 import React from 'react';
+import ImageView from '../ImageView/ImageView';
 import classes from './MainView.css';
 
 const mainView = (props) => {
-    const imOne=props.image;
-    console.log(imOne);
+    console.log(props.allImages);
+    if (props.fullView) {
+        return(
+            <div className={classes.Main}>
+                    {props.allImages}
+            </div>
+        )
+    }
 
-    return(
-        <div className={classes.Main}>
-            <img src={imOne} alt=''/>
-        </div>
-    )
+    if (!props.fullView) {
+        console.log(props.imageId);
+        return <ImageView   id={props.imageId} 
+                            back={props.back}/>
+    }
+
 }
 
 export default mainView;

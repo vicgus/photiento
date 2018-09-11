@@ -1,0 +1,18 @@
+.Main {
+    height: 70vh;
+    width: 74vw;
+    position: fixed;
+    left: 13vw;
+    display: inline-block;
+    background-color: yellow;
+}
+
+.Img {
+    max-width: 74vw;
+    max-height: 70vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
