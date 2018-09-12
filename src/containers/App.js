@@ -13,7 +13,7 @@ import cred from '../utils/cred';
 
 import rndmImg from '../assets/img/1.png'
 
-const query = 'city';
+const query = 'nature';
 
 class App extends Component {
   state = {
@@ -56,7 +56,7 @@ class App extends Component {
                     photographer={img.user.name}
                     location={img.location}
                     likes={img.likes} 
-                    clicked = {() => this.imageSelectedHandler(img.id)}/>
+                    clicked = {() => this.imageSelectedHandler(img.urls.small)}/>
     });
 
 

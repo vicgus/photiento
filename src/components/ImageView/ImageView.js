@@ -13,13 +13,16 @@ class ImageView extends Component {
     }
 
     componentDidUpdate() {
-        if (!this.props.id) {
-            axios.get(`https://api.unsplash.com/photos/${this.state.loadedImage}&client_id=${cred.appId}`)
+        if (this.props.id) {
+            if (!this.state.loadedImage || (this.state.loadedImage && this.state.loadedImage.id !== this.props.id)) {
+                axios.get(`https://api.unsplash.com/photos/${this.state.loadedImage}&client_id=${cred.appId}`)
+                // axios.get(`https://api.unsplash.com/photos/${this.props.id}`)
                     .then(response => {
                         console.log(response);
-                        this.setState({loadedImage: img})
+                        this.setState({loadedImage: response})
                     });
             }
+        }
     }
 
     render() {

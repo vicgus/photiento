@@ -13,3 +13,4 @@ const image = (props) => {
 }
 
 export default image;
+
