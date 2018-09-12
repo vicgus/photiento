@@ -7,40 +7,47 @@ import FilterBar from '../components/FilterBar/FilterBar';
 import InfoBar from '../components/InfoBar/InfoBar';
 import NavBar from '../components/NavBar/NavBar';
 import MainView from '../components/MainView/MainView';
-import ImageView from '../components/ImageView/ImageView';
 import Image from '../components/Image/Image'
 import cred from '../utils/cred';
-
-import rndmImg from '../assets/img/1.png'
-
-const query = 'nature';
 
 class App extends Component {
   state = {
     images: [],
-    selFilter: query,
+    query: 'nature',
     fullView: true,
-    selectedImage: null
+    selectedImage: null,
+    photographer: null,
+    location: null,
+    likes: null,
+    description: null
   }
 
   componentDidMount() {
-    axios.get(`https://api.unsplash.com/search/photos/?page=1&per_page=10&query=${this.state.selFilter}&client_id=${cred.appId}`)
+    axios.get(`https://api.unsplash.com/search/photos/?page=1&per_page=30&query=${this.state.query}&client_id=${cred.appId}`)
       .then(response => {
         this.setState({images: response.data.results})
         console.log(response.data.results);
       });
   }
 
-  imageSelectedHandler = (id) => {
+  imageSelectedHandler = (index) => {
     let newView = this.state.fullView;
-
+    let id = this.state.images[index].id;
+    let user = this.state.images[index].user.name;
+    let location = this.state.images[index].location;
+    let likes = this.state.images[index].likes;
+    let description = this.state.images[index].description;
     this.setState( () => {
       return {
         fullView: !newView,
-        selectedImage: id
+        selectedImage: id,
+        photographer: user,
+        location: location,
+        likes: likes,
+        description: description
       }
     });
-    console.log(this.state.selectedImage, this.state.fullView);
+    console.log(index, this.state.selectedImage, this.state.fullView, this.state.photographer);
   }
 
   getBackHandler = () => {
@@ -49,14 +56,15 @@ class App extends Component {
   }
 
   render() {
-    const images = this.state.images.map(img => {
-      return <Image thumbUrl= {img.urls.thumb} 
+    const images = this.state.images.map((img, index) => {
+      return <Image smallUrl= {img.urls.small} 
                     fullUrl= {img.urls.full}
                     key={img.id} 
                     photographer={img.user.name}
                     location={img.location}
-                    likes={img.likes} 
-                    clicked = {() => this.imageSelectedHandler(img.urls.small)}/>
+                    likes={img.likes}
+                    title={img.description} 
+                    clicked = {() => this.imageSelectedHandler(index)}/>
     });
 
 
@@ -64,13 +72,16 @@ class App extends Component {
         <div>
           <Header />
           <FilterBar />
-          {/* {view} */}
           <MainView allImages={images} 
                     imageId={this.state.selectedImage} 
                     fullView={this.state.fullView} 
                     back={() => this.getBackHandler()}/>
-          <InfoBar />
-          <NavBar />
+          <InfoBar  fullView={this.state.fullView} 
+                    photographer={this.state.photographer} 
+                    location={this.state.location}
+                    likes={this.state.likes}
+                    description={this.state.description}/>
+          <NavBar query={this.state.query}/>
           <Footer />
         </div>
     )
@@ -79,20 +90,3 @@ class App extends Component {
 
 export default App;
 
-
-
-
-    // let view = null;
-
-    // if (!this.state.fullView) {
-    //   view = (
-    //     <MainView allImages={images} />
-    //   )
-    // };
-
-    // if (this.state.fullView) {
-    //   view = (
-    //     <ImageView 
-    //             id={this.state.selectedImage} />
-    //   )
-    // }

@@ -10,7 +10,7 @@ class NavBar extends Component {
                 <div className={classes.center}>
                     <h1 className={classes.TagHeader}>
                         <img src={left} alt='' className={classes.imgl}/>
-                        Art
+                        {this.props.query}
                         <img src={right} alt='' className={classes.imgr}/>
                     </h1> 
                 </div>

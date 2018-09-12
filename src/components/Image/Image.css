@@ -1,6 +1,6 @@
-
-.ImgDiv {
-    height: 15vh;
-    /* display: inline; */
+.Img {
     overflow: hidden;
+    /* position: relative; */
+    width: 24vw;
+    margin: 0.32vw;
 }

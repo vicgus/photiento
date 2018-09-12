@@ -3,12 +3,10 @@ import classes from './Image.css'
 
 const image = (props) => {
     return (
-        <div>
             <img 
-                src={props.thumbUrl} alt='' 
-                className={classes.ImgDiv}
+                src={props.smallUrl} alt='' 
+                className={classes.Img}
                 onClick={props.clicked} />
-        </div>
     )
 }
 

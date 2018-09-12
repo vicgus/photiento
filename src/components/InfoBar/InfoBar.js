@@ -6,9 +6,12 @@ class InfoBar extends Component {
         return(
             <div className={classes.RightBar}>
                 <div className={classes.SelDiv}>
-                    <p>13.7k Photos</p>
-                    <p>108 Users</p>
-                    <p>5.9k Collections</p>
+                    <p>Photographer</p>
+                    <p>{this.props.photographer}</p>
+                    <p>Location</p>
+                    <p>{this.props.location}</p>
+                    <p>Description</p>
+                    <p>{this.props.description}</p>
                 </div>
             </div>
         )
