@@ -8,16 +8,29 @@ class FilterBar extends Component {
             <div className={classes.LeftBar} align={"center"}>
                 <img src={searchicon} alt='' className={classes.Search}/>
                 <div className={classes.SelDiv} >
-                    <p>Art</p>
-                    <p>City</p>
-                    <p>Nature</p>
-                    <p>Sunset</p>
-                    <p>People</p>
-                    <p>Architecture</p>
+                    {this.props.allQueries}
                 </div>
             </div>
         )
     }
 }
+
+// class FilterBar extends Component {
+//     render() {
+//         return(
+//             <div className={classes.LeftBar} align={"center"}>
+//                 <img src={searchicon} alt='' className={classes.Search}/>
+//                 <div className={classes.SelDiv} >
+//                     <p>Art</p>
+//                     <p>City</p>
+//                     <p>Nature</p>
+//                     <p>Sunset</p>
+//                     <p>People</p>
+//                     <p>Architecture</p>
+//                 </div>
+//             </div>
+//         )
+//     }
+// }
 
 export default FilterBar;

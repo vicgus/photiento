@@ -1,7 +1,8 @@
 .Img {
-    overflow: hidden;
     /* position: relative; */
-    width: 24vw;
+    /* width: 24vw; */
+    height:30vh;
+    display: inline;
     padding: 0.32vw;
     top: 0px;
 }

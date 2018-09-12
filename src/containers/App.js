@@ -7,13 +7,27 @@ import FilterBar from '../components/FilterBar/FilterBar';
 import InfoBar from '../components/InfoBar/InfoBar';
 import NavBar from '../components/NavBar/NavBar';
 import MainView from '../components/MainView/MainView';
-import Image from '../components/Image/Image'
+import Image from '../components/Image/Image';
+import Query from '../components/Query/Query';
 import cred from '../utils/cred';
 
 class App extends Component {
   state = {
     images: [],
-    queryList: [],
+    queryList: [
+      {
+        query: 'Nature',
+        id: 1
+      },
+      {
+        query: 'Art',
+        id: 2
+      },
+      {
+        query: 'Architecture',
+        id: 3
+      },
+     ],
     query: 'art',
     fullView: true,
     selectedImage: null,
@@ -23,11 +37,11 @@ class App extends Component {
     description: null
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     axios.get(`https://api.unsplash.com/search/photos/?page=1&per_page=30&query=${this.state.query}&client_id=${cred.appId}`)
       .then(response => {
         this.setState({images: response.data.results})
-        console.log(response.data.results);
+        console.log(response.data.results, this.state.queryList);
       });
   }
 
@@ -56,32 +70,42 @@ class App extends Component {
     this.setState({fullView: !getFullView})
   }
 
+  querySelectorHandler = (index) => {
+    let newQuery = this.state.queryList[index].query;
+    this.setState({query: newQuery})
+    console.log(this.state.query);
+  }
+
   render() {
     const images = this.state.images.map((img, index) => {
       return <Image smallUrl= {img.urls.small} 
-                    fullUrl= {img.urls.full}
                     key={img.id} 
-                    photographer={img.user.name}
-                    location={img.location}
-                    likes={img.likes}
-                    title={img.description} 
                     clicked = {() => this.imageSelectedHandler(index)}/>
     });
 
+    const queries = this.state.queryList.map((qr, index) => {
+      return <Query 
+                query={qr.query}
+                key={qr.id}
+                clicked={() => this.querySelectorHandler(index)}/>
+    });
 
       return (
         <div>
           <Header />
-          <FilterBar />
-          <MainView allImages={images} 
-                    imageId={this.state.selectedImage} 
-                    fullView={this.state.fullView} 
-                    back={() => this.getBackHandler()}/>
-          <InfoBar  fullView={this.state.fullView} 
-                    photographer={this.state.photographer} 
-                    location={this.state.location}
-                    likes={this.state.likes}
-                    description={this.state.description}/>
+          <FilterBar  
+            allQueries={queries} />
+          <MainView   
+            allImages={images} 
+            imageId={this.state.selectedImage} 
+            fullView={this.state.fullView} 
+            back={() => this.getBackHandler()}/>
+          <InfoBar  
+            fullView={this.state.fullView} 
+            photographer={this.state.photographer} 
+            location={this.state.location}
+            likes={this.state.likes}
+            description={this.state.description}/>
           <NavBar query={this.state.query}/>
           <Footer />
         </div>
