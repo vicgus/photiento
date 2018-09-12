@@ -3,7 +3,8 @@
     height: 70vh;
     right: 0px;
     margin: 0 0 0 0;
-    background-color: azure;
+    /* background-color: azure; */
+    background-color: white;
     display: inline-block;
     position: fixed;
     text-align: center;
@@ -17,6 +18,7 @@
     width: 10vw;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+    background-color: white;
     position: absolute;
 }

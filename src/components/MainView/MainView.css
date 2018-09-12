@@ -4,7 +4,8 @@
     position: fixed;
     left: 13vw;
     display: inline-block;
-    background-color: yellow;
+    /* background-color: yellow; */
+    background-color: white;
     overflow: scroll;
 }
 

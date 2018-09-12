@@ -2,10 +2,9 @@ import React, {Component} from 'react';
 import classes from './MainView.css';
 
 class MainView extends Component {
-    
     render() {
         let image = null
-        let img = `https://source.unsplash.com/${this.props.imageId}`;
+        let imgSrc = `https://source.unsplash.com/${this.props.imageId}`;
         if (this.props.fullView) {
             return(
                 <div className={classes.Main}>
@@ -20,10 +19,10 @@ class MainView extends Component {
             image= (
                 <div className={classes.Main}>
                     <img 
-                        src= {img}
+                        src= {imgSrc}
                         className={classes.Img} 
                         onClick={this.props.back}
-                        alt=''/>
+                        alt='' />
                 </div>
             );
             console.log(this.props.imageUrl);

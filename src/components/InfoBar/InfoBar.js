@@ -1,21 +1,32 @@
-import React, {Component} from 'react';
+import React from 'react';
 import classes from './InfoBar.css';
 
-class InfoBar extends Component {
-    render() {
+const infoBar = (props) => {
+    if (props.fullView) {
+        return(
+            <div className={classes.RightBar}>
+                <div className={classes.SelDiv}>
+                    <p>13.7 Photos</p>
+                    <p>108 Users</p>
+                    <p>5.9k Collections</p>
+                </div>
+        </div> 
+        )
+    }
+    if (!props.fullView) {
         return(
             <div className={classes.RightBar}>
                 <div className={classes.SelDiv}>
                     <p>Photographer</p>
-                    <p>{this.props.photographer}</p>
+                    <p>{props.photographer}</p>
                     <p>Location</p>
-                    <p>{this.props.location}</p>
+                    <p>{props.location}</p>
                     <p>Description</p>
-                    <p>{this.props.description}</p>
+                    <p>{props.description}</p>
                 </div>
             </div>
         )
     }
 }
 
-export default InfoBar;
+export default infoBar;

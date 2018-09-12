@@ -20,9 +20,22 @@
   bottom: 0px;
   background-color: white;
   text-align: center;
+  font-size: 10px;
 }
 
-.h1 {
+.pfooter {
   text-align: center;
+  border-top: solid 1px black;
+  padding-top: 12px;
+  width: 10vw;
+  margin: auto;
+}
+
+.pheader {
+  text-align: center;
+  border-bottom: solid 1px black;
+  padding-top: 20px;
+  width: 10vw;
+  margin: auto;
 }
 

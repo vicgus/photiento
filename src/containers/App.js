@@ -13,7 +13,8 @@ import cred from '../utils/cred';
 class App extends Component {
   state = {
     images: [],
-    query: 'nature',
+    queryList: [],
+    query: 'art',
     fullView: true,
     selectedImage: null,
     photographer: null,

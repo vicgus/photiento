@@ -2,8 +2,9 @@
     width: 13vw;
     height: 70vh;
     left: 0px;
-    margin: 0 0 0 0;
-    background-color: azure;
+    /* margin: 0 0 0 0;
+    background-color: azure; */
+    background-color: white;
     display: inline-block;
     text-align: center;
     /* align-content: center; */
@@ -18,7 +19,8 @@
     left: 6.5%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+    background-color: white;
 }
 
 .Search {

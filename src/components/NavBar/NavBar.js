@@ -1,22 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 import classes from './NavBar.css';
-import right from '../../assets/icons/Right.svg';
-import left from '../../assets/icons/Left.svg';
 
-class NavBar extends Component {
-    render() {
-        return(
-            <div className={classes.NavDiv}>
-                <div className={classes.center}>
-                    <h1 className={classes.TagHeader}>
-                        <img src={left} alt='' className={classes.imgl}/>
-                        {this.props.query}
-                        <img src={right} alt='' className={classes.imgr}/>
-                    </h1> 
-                </div>
+const navBar = (props) => {
+    return(
+        <div className={classes.NavDiv}>
+            <div className={classes.center}>
+                <h1 className={classes.TagHeader}>
+                    {props.query}
+                </h1> 
             </div>
-        )
-    }
+        </div>
+    )
 }
 
-export default NavBar;
+export default navBar;
