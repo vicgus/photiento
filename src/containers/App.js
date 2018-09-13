@@ -36,8 +36,10 @@ class App extends Component {
         id: 5
       },
      ],
-    query: 'NATURE',
+    query: null,
+    loadedQuery: 'CHOOSE TAGS',
     fullView: true,
+    searchView: false,
     selectedImage: null,
     photographer: null,
     location: null,
@@ -47,12 +49,13 @@ class App extends Component {
 
   //Check this. Infinite loop!
   componentDidUpdate() {
-        if (this.state.query) {
+      if (this.state.query) {
         axios.get(`https://api.unsplash.com/search/photos/?page=1&per_page=30&query=${this.state.query}&client_id=${cred.appId}`)
         .then(response => {
           this.setState({
               images: response.data.results,
-              query: this.state.queryList.query
+              query: this.state.queryList.query,
+              loadedQuery: this.state.query
             })
           console.log(response.data.results, this.state.queryList, this.state.query);
         });
@@ -94,12 +97,21 @@ class App extends Component {
   removeQueryHandler = (index) => {
     let newList = [...this.state.queryList];
     newList.splice(index, 1);
-    let nextQuery = newList[index-1];
+    let nextQuery = '';
+    // if (newList.length < 1) {
+    //   nextQuery = nextQuery = newList[index+1].query;
+    // };
+    if (newList.length === 0) {
+      nextQuery = 'ADD TO LEFT';
+    };
+    if (newList.length > 1) {
+      nextQuery = newList[index].query;
+    };
     this.setState({
       queryList: newList,
-      // query: nextQuery
-    })
-    console.log(nextQuery);
+      query: nextQuery
+    });
+    console.log(newList.length)
   }
 
   render() {
@@ -133,7 +145,7 @@ class App extends Component {
             location={this.state.location}
             likes={this.state.likes}
             description={this.state.description}/>
-          <NavBar query={this.state.query}/>
+          <NavBar query={this.state.loadedQuery}/>
           <Footer />
         </div>
     )
