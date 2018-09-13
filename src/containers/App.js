@@ -40,7 +40,7 @@ class App extends Component {
         id: 6
       },
       {
-        query: 'LA',
+        query: 'SOHO',
         id: 7
       },
      ],
@@ -109,7 +109,7 @@ class App extends Component {
     let newList = [...this.state.queryList];
     newList.splice(index, 1);
     let nextQuery = '';
-    
+
     if (newList.length === 0) {
       nextQuery = 'LOOK LEFT';
     };
@@ -157,8 +157,9 @@ class App extends Component {
             allImages={images} 
             imageId={this.state.selectedImage} 
             fullView={this.state.fullView}
-            searchView={this.state.searchView} 
-            back={() => this.getBackHandler()}/>
+            back={() => this.getBackHandler()}
+            searchView={this.state.searchView}/>
+          {/* <SearchDiv searchView={this.state.searchView} /> */}
           <InfoBar  
             fullView={this.state.fullView} 
             photographer={this.state.photographer}

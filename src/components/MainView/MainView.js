@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import classes from './MainView.css';
+import SearchDiv from './SearchDiv/SearchDiv';
 
 class MainView extends Component {
     constructor(props) {
@@ -19,6 +20,18 @@ class MainView extends Component {
                     <div className={classes.ImgList}>
                         {this.props.allImages}
                     </div>
+                </div>
+            )
+        }
+        //Add/style search div as a top row above the images
+        //Welcome to site and if filterlist is empty -> have LOOK LEFT + skärmavbild from yesterday as image
+        if (this.props.fullView && this.props.searchView) {
+            return(
+                <div className={classes.Main}>
+                    <div className={classes.ImgList}>
+                        {this.props.allImages}
+                    </div>
+                    <SearchDiv />
                 </div>
             )
         }
