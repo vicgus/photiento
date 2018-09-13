@@ -1,8 +1,20 @@
 import React from 'react';
+import classes from './Query.css'
+import cross from '../../assets/icons/Cross.svg';
 
 const query = (props) => {
     return (
-        <p onClick={props.clicked}>{props.query}</p>
+        <div>
+            <img 
+                src={cross} 
+                onClick={props.clickRemove}
+                className={classes.Img} 
+                alt=''/>
+            <p  className={classes.Paragraph}
+                onClick={props.clickSelect}>
+            {props.query}
+            </p>
+        </div>
     )
 }
 

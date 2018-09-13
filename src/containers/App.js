@@ -16,19 +16,27 @@ class App extends Component {
     images: [],
     queryList: [
       {
-        query: 'Nature',
+        query: 'NATURE',
         id: 1
       },
       {
-        query: 'Art',
+        query: 'ART',
         id: 2
       },
       {
-        query: 'Architecture',
+        query: 'ARCHITECTURE',
         id: 3
       },
+      {
+        query: 'SPORTS',
+        id: 4
+      },
+      {
+        query: 'GERMANY',
+        id: 5
+      },
      ],
-    query: 'art',
+    query: 'NATURE',
     fullView: true,
     selectedImage: null,
     photographer: null,
@@ -37,12 +45,18 @@ class App extends Component {
     description: null
   }
 
+  //Check this. Infinite loop!
   componentDidUpdate() {
-    axios.get(`https://api.unsplash.com/search/photos/?page=1&per_page=30&query=${this.state.query}&client_id=${cred.appId}`)
-      .then(response => {
-        this.setState({images: response.data.results})
-        console.log(response.data.results, this.state.queryList);
-      });
+        if (this.state.query) {
+        axios.get(`https://api.unsplash.com/search/photos/?page=1&per_page=30&query=${this.state.query}&client_id=${cred.appId}`)
+        .then(response => {
+          this.setState({
+              images: response.data.results,
+              query: this.state.queryList.query
+            })
+          console.log(response.data.results, this.state.queryList, this.state.query);
+        });
+    }
   }
 
   imageSelectedHandler = (index) => {
@@ -72,8 +86,20 @@ class App extends Component {
 
   querySelectorHandler = (index) => {
     let newQuery = this.state.queryList[index].query;
-    this.setState({query: newQuery})
+    let newQueryUpper = newQuery.toUpperCase();
+    this.setState({query: newQueryUpper})
     console.log(this.state.query);
+  }
+
+  removeQueryHandler = (index) => {
+    let newList = [...this.state.queryList];
+    newList.splice(index, 1);
+    let nextQuery = newList[index-1];
+    this.setState({
+      queryList: newList,
+      // query: nextQuery
+    })
+    console.log(nextQuery);
   }
 
   render() {
@@ -87,7 +113,8 @@ class App extends Component {
       return <Query 
                 query={qr.query}
                 key={qr.id}
-                clicked={() => this.querySelectorHandler(index)}/>
+                clickSelect={() => this.querySelectorHandler(index)}
+                clickRemove={() => this.removeQueryHandler(index)}/>
     });
 
       return (
