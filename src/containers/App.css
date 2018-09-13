@@ -34,8 +34,9 @@
 .pheader {
   text-align: center;
   border-bottom: solid 1px black;
-  padding-top: 20px;
+  padding-top: 25px;
   width: 10vw;
   margin: auto;
+  padding-bottom: 10px;
 }
 

@@ -1,36 +1,20 @@
-import React, {Component} from 'react';
+import React from 'react';
 import classes from './FilterBar.css';
 import searchicon from '../../assets/icons/Search.svg';
 
-class FilterBar extends Component {
-    render() {
-        return(
-            <div className={classes.LeftBar} align={"center"}>
-                <img src={searchicon} alt='' className={classes.Search}/>
-                <div className={classes.SelDiv} >
-                    {this.props.allQueries}
-                </div>
+const filterBar = (props) => {
+    return(
+        <div className={classes.LeftBar} align={"center"}>
+            <img 
+                onClick={props.searchClick}
+                src={searchicon} 
+                alt='' 
+                className={classes.Search}/>
+            <div className={classes.SelDiv} >
+                {props.allQueries}
             </div>
-        )
-    }
+        </div>
+    )
 }
 
-// class FilterBar extends Component {
-//     render() {
-//         return(
-//             <div className={classes.LeftBar} align={"center"}>
-//                 <img src={searchicon} alt='' className={classes.Search}/>
-//                 <div className={classes.SelDiv} >
-//                     <p>Art</p>
-//                     <p>City</p>
-//                     <p>Nature</p>
-//                     <p>Sunset</p>
-//                     <p>People</p>
-//                     <p>Architecture</p>
-//                 </div>
-//             </div>
-//         )
-//     }
-// }
-
-export default FilterBar;
+export default filterBar;

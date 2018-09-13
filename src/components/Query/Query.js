@@ -12,7 +12,7 @@ const query = (props) => {
                 alt=''/>
             <p  className={classes.Paragraph}
                 onClick={props.clickSelect}>
-            {props.query}
+                {props.query}
             </p>
         </div>
     )

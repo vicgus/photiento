@@ -2,9 +2,17 @@ import React, {Component} from 'react';
 import classes from './MainView.css';
 
 class MainView extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            search: this.props.searchView
+        }
+    }
+
     render() {
         let image = null
-        let imgSrc = `https://source.unsplash.com/${this.props.imageId}`;
+        let imgSource = `https://source.unsplash.com/${this.props.imageId}`;
+
         if (this.props.fullView) {
             return(
                 <div className={classes.Main}>
@@ -19,7 +27,7 @@ class MainView extends Component {
             image= (
                 <div className={classes.Main}>
                     <img 
-                        src= {imgSrc}
+                        src= {imgSource}
                         className={classes.Img} 
                         onClick={this.props.back}
                         alt='' />
@@ -41,27 +49,3 @@ export default MainView;
 
 
 
-// const mainView = (props) => {
-//     console.log(props.allImages);
-//     if (props.fullView) {
-//         return(
-//             <div className={classes.Main}>
-//                     {props.allImages}
-//             </div>
-//         )
-//     }
-
-//     if (!props.fullView) {
-//         console.log(props.imageId);
-//         return <ImageView   id={props.imageId} 
-//                             back={props.back}/>
-        
-//     }
-
-// }
-
-// export default mainView;
-
-
-//note to self: 
-// gör om denna till imageview/fullview och skippa imageview.js

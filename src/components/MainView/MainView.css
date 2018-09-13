@@ -24,3 +24,15 @@
     margin-bottom: auto;
     display: block;
 }
+
+.Img:hover {
+    opacity: 0.5;
+}
+
+.SearchDiv {
+    z-index: 1;
+    width: 20%;
+    height: 20%;
+    background-color: gray;
+    margin: auto;
+}

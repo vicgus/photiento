@@ -28,16 +28,24 @@ class App extends Component {
         id: 3
       },
       {
-        query: 'SPORTS',
+        query: 'PARIS',
         id: 4
       },
       {
-        query: 'GERMANY',
+        query: 'CINQUE TERRE',
         id: 5
+      },
+      {
+        query: 'SKOPELOS',
+        id: 6
+      },
+      {
+        query: 'LA',
+        id: 7
       },
      ],
     query: null,
-    loadedQuery: 'CHOOSE TAGS',
+    loadedQuery: 'LOOK LEFT',
     fullView: true,
     searchView: false,
     selectedImage: null,
@@ -47,7 +55,7 @@ class App extends Component {
     description: null
   }
 
-  //Check this. Infinite loop!
+
   componentDidUpdate() {
       if (this.state.query) {
         axios.get(`https://api.unsplash.com/search/photos/?page=1&per_page=30&query=${this.state.query}&client_id=${cred.appId}`)
@@ -66,7 +74,7 @@ class App extends Component {
     let newView = this.state.fullView;
     let id = this.state.images[index].id;
     let user = this.state.images[index].user.name;
-    let location = this.state.images[index].location;
+    let location = this.state.images[index].user.location;
     let likes = this.state.images[index].likes;
     let description = this.state.images[index].description;
     this.setState( () => {
@@ -90,7 +98,10 @@ class App extends Component {
   querySelectorHandler = (index) => {
     let newQuery = this.state.queryList[index].query;
     let newQueryUpper = newQuery.toUpperCase();
-    this.setState({query: newQueryUpper})
+    this.setState({
+      query: newQueryUpper,
+      fullView: true
+    });
     console.log(this.state.query);
   }
 
@@ -98,20 +109,27 @@ class App extends Component {
     let newList = [...this.state.queryList];
     newList.splice(index, 1);
     let nextQuery = '';
-    // if (newList.length < 1) {
-    //   nextQuery = nextQuery = newList[index+1].query;
-    // };
+    
     if (newList.length === 0) {
-      nextQuery = 'ADD TO LEFT';
+      nextQuery = 'LOOK LEFT';
     };
-    if (newList.length > 1) {
-      nextQuery = newList[index].query;
+    if (newList.length > 1 && index !==0) {
+      nextQuery = newList[index-1].query;
     };
+    if (index === 0 && newList.length !==0) {
+      nextQuery = newList[0].query;
+    }
     this.setState({
       queryList: newList,
       query: nextQuery
     });
     console.log(newList.length)
+  }
+
+  toggleSearch = () => {
+    let getSearchView = this.state.searchView;
+    this.setState({searchView: !getSearchView});
+    console.log(this.state.searchView);
   }
 
   render() {
@@ -133,18 +151,21 @@ class App extends Component {
         <div>
           <Header />
           <FilterBar  
-            allQueries={queries} />
+            allQueries={queries} 
+            searchClick={() => this.toggleSearch()}/>
           <MainView   
             allImages={images} 
             imageId={this.state.selectedImage} 
-            fullView={this.state.fullView} 
+            fullView={this.state.fullView}
+            searchView={this.state.searchView} 
             back={() => this.getBackHandler()}/>
           <InfoBar  
             fullView={this.state.fullView} 
-            photographer={this.state.photographer} 
+            photographer={this.state.photographer}
             location={this.state.location}
             likes={this.state.likes}
-            description={this.state.description}/>
+            description={this.state.description}
+            allImages={images}/>
           <NavBar query={this.state.loadedQuery}/>
           <Footer />
         </div>

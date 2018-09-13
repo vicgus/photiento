@@ -1,8 +1,12 @@
 .Img {
     /* position: relative; */
     /* width: 24vw; */
-    height:30vh;
-    display: inline;
+    height: 30vh;
+    display: inline-block;
     padding: 0.32vw;
     top: 0px;
+}
+
+.Img:hover {
+    opacity: 0.5;
 }
