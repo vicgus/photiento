@@ -6,4 +6,17 @@
 
 .Paragraph {
     display: inline-block;
+    -webkit-transition: opacity .15s ease-in-out;
+    -moz-transition: opacity .15s ease-in-out;
+    -ms-transition: opacity .15s ease-in-out;
+    -o-transition: opacity .15s ease-in-out;
+    transition: opacity .15s ease-in-out;
+    opacity: 0.6;
+}
+
+
+.Paragraph:hover {
+    zoom: 0;
+    filter: alpha(opacity=100);
+    opacity: 1;
 }

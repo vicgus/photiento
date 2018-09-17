@@ -1,10 +1,12 @@
 .Img {
     /* position: relative; */
-    /* width: 24vw; */
-    height: 30vh;
+    max-width: 18vw;
+    /* height: 30vh; */
     display: inline-block;
-    padding: 0.32vw;
+    padding: 0.1vw;
+    /* margin: auto; */
     top: 0px;
+    transition: opacity .5s ease-in-out;
 }
 
 .Img:hover {

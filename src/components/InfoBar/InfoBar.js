@@ -1,33 +1,45 @@
 import React from 'react';
 import classes from './InfoBar.css';
+import heart from '../../assets/icons/Heart.svg';
 
 const infoBar = (props) => {
     let imageCount = props.allImages.length;
-    let userCount = props.photographer;
+
     if (props.fullView) {
         return(
             <div className={classes.RightBar}>
                 <div className={classes.SelDiv}>
                     <p>{imageCount} PHOTOS</p>
-                    {/* <p>{userCount}Users</p>
-                    <p>5.9k Collections</p> */}
                 </div>
+                {/* <div className={classes.Line}></div> */}
         </div> 
         )
     }
+
+    let location = props.location;
+    if (location) {
+        location = location.toUpperCase();
+    }
+
+    let description = props.description;
+    if (description) {
+        description = description.toUpperCase();
+    }
+
     if (!props.fullView) {
         return(
             <div className={classes.RightBar}>
                 <div className={classes.SelDiv}>
-                    <p>Photographer</p>
-                    <p>{props.photographer}</p>
-                    <p>Location</p>
-                    <p>{props.location}</p>
-                    <p>Description</p>
-                    <p>{props.description}</p>
-                    <p>Likes</p>
-                    <p>{props.likes}</p>
+                    {/* <p>PHOTOGRAPHER</p> */}
+                    <p href=''>{props.photographer.toUpperCase()} ON UNSPLASH.COM</p>
+                    {/* <p>LOCATION</p> */}
+                    <p>{location}</p>
+                    {/* <p>DESCRIPTION</p> */}
+                    <p>{description}</p>
+                    <p></p>
+                    <p><img src={heart} alt= ''/> {props.likes} </p>
                 </div>
+                {/* <div className={classes.Line}></div> */}
             </div>
         )
     }

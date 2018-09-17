@@ -21,6 +21,7 @@
     display: inline-block;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    opacity: 0.7;
 }
 
 .imgl {
@@ -31,4 +32,44 @@
 .imgr {
     display: inline-block;
     margin-left: 50px;
+}
+
+.LineLeft {
+    border-right: gray solid 1px;
+    height: 12vh;
+    top: 0px;;
+    left: 6.5vw;
+    position: absolute;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.LineRight {
+    border-right: gray solid 1px;
+    height: 12vh;
+    top: 0px;;
+    right: 93px;
+    position: absolute;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.LineRightVert {
+    border-right: gray solid 1px;
+    height: 12vh;
+    top: 0px;;
+    right: 93px;
+    position: absolute;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.LineLeftVert {
+    border-right: gray solid 1px;
+    width: 200px;
+    top: 0px;
+    right: 93px;
+    position: absolute;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }

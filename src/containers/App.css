@@ -26,17 +26,19 @@
   text-align: center;
   border-top: solid 1px black;
   padding-top: 12px;
-  width: 10vw;
+  width: 75vw;
   margin: auto;
+  opacity: 0.7;
 }
 
 .pheader {
   text-align: center;
   border-bottom: solid 1px black;
   padding-top: 25px;
-  width: 20vw;
+  width: 75vw;
   margin: auto;
   padding-bottom: 10px;
   font-size: 30px;
+  opacity: 0.7;
 }
 

@@ -13,6 +13,7 @@ const filterBar = (props) => {
             <div className={classes.SelDiv} >
                 {props.allQueries}
             </div>
+            {/* <div className={classes.Line}></div> */}
         </div>
     )
 }

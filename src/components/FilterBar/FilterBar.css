@@ -12,15 +12,20 @@
 
 .Line {
     border-right: gray solid 1px;
-    height: 35vh;
-    bottom: 0px;
+    height: 33.1vh;
+    bottom: 0px;;
+    left: 50%;
+    position: absolute;
+    left: 6.5%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .SelDiv {
     border-top: gray solid 1px;
     border-bottom: gray solid 1px;
     position: absolute;
-    width: 10vw;;
+    width: 10vw;
     top: 50%;
     left: 6.5%;
     -ms-transform: translate(-50%, -50%);
@@ -37,3 +42,6 @@
     left: 5.5%;
     height: 20px;
 }
+
+
+

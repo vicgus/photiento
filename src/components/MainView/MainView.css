@@ -1,12 +1,9 @@
 .Main {
     height: 70vh;
     width: 74vw;
-    position: fixed;
     left: 13vw;
     display: inline-block;
-    /* background-color: yellow; */
     background-color: white;
-    /* overflow-wrap: break-word; */
     overflow-x: scroll;
 }
 
@@ -23,10 +20,53 @@
     margin-top: auto;
     margin-bottom: auto;
     display: block;
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -ms-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
 }
 
 .Img:hover {
+    zoom: 1;
+    filter: alpha(opacity=50);
     opacity: 0.5;
+}
+
+.column {
+    flex: 10%;
+    width: 10%;
+    padding: 0 4px;
+    display: inline-block;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+.Back {
+    margin: auto;
+    /* z-index: 1; */
+    width: 80px;
+    bottom: 45%;
+    left: 50%;
+    position: absolute;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -ms-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+    opacity: 0;
+}
+
+.Back:hover {
+    zoom: 1;
+    filter: alpha(opacity=1);
+    opacity: 1;
 }
 
 .SearchDiv {

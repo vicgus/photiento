@@ -7,6 +7,7 @@ import FilterBar from '../components/FilterBar/FilterBar';
 import InfoBar from '../components/InfoBar/InfoBar';
 import NavBar from '../components/NavBar/NavBar';
 import MainView from '../components/MainView/MainView';
+import SearchDiv from '../components/SearchDiv/SearchDiv';
 import Image from '../components/Image/Image';
 import Query from '../components/Query/Query';
 import cred from '../utils/cred';
@@ -16,11 +17,11 @@ class App extends Component {
     images: [],
     queryList: [
       {
-        query: 'NATURE',
+        query: 'FLOWERS',
         id: 1
       },
       {
-        query: 'ART',
+        query: 'josefin',
         id: 2
       },
       {
@@ -36,13 +37,9 @@ class App extends Component {
         id: 5
       },
       {
-        query: 'SKOPELOS',
+        query: 'storm',
         id: 6
-      },
-      {
-        query: 'SOHO',
-        id: 7
-      },
+      }
      ],
     query: null,
     loadedQuery: 'LOOK LEFT',
@@ -52,7 +49,8 @@ class App extends Component {
     photographer: null,
     location: null,
     likes: null,
-    description: null
+    description: null,
+    userUrl: null,
   }
 
 
@@ -77,6 +75,7 @@ class App extends Component {
     let location = this.state.images[index].user.location;
     let likes = this.state.images[index].likes;
     let description = this.state.images[index].description;
+    let userUrl = this.state.images[index].user.links.self;
     this.setState( () => {
       return {
         fullView: !newView,
@@ -84,7 +83,8 @@ class App extends Component {
         photographer: user,
         location: location,
         likes: likes,
-        description: description
+        description: description,
+        userUrl: userUrl
       }
     });
     console.log(index, this.state.selectedImage, this.state.fullView, this.state.photographer);
@@ -116,9 +116,10 @@ class App extends Component {
     if (newList.length > 1 && index !==0) {
       nextQuery = newList[index-1].query;
     };
-    if (index === 0 && newList.length !==0) {
+    if (newList.length !==0 && index === 0) {
       nextQuery = newList[0].query;
     }
+
     this.setState({
       queryList: newList,
       query: nextQuery
@@ -147,25 +148,33 @@ class App extends Component {
                 clickRemove={() => this.removeQueryHandler(index)}/>
     });
 
+    let search = <SearchDiv back={() => this.toggleSearch()}/>
+
+    if (!this.state.searchView) {
+      search = null;
+    }
+
       return (
         <div>
           <Header />
           <FilterBar  
             allQueries={queries} 
             searchClick={() => this.toggleSearch()}/>
+          {search}
           <MainView   
             allImages={images} 
             imageId={this.state.selectedImage} 
             fullView={this.state.fullView}
             back={() => this.getBackHandler()}
-            searchView={this.state.searchView}/>
-          {/* <SearchDiv searchView={this.state.searchView} /> */}
+            searchView={this.state.searchView}
+            welcomeTest={this.state.loadedQuery}/>
           <InfoBar  
             fullView={this.state.fullView} 
             photographer={this.state.photographer}
             location={this.state.location}
             likes={this.state.likes}
             description={this.state.description}
+            userUrl={this.state.userUrl}
             allImages={images}/>
           <NavBar query={this.state.loadedQuery}/>
           <Footer />
