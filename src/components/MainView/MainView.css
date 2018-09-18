@@ -46,10 +46,9 @@
     padding: 0 4px;
 }
 
-.Back {
+/* .Back {
     margin: auto;
     background-color: white;
-    /* z-index: 1; */
     width: 80px;
     bottom: 45%;
     left: 50%;
@@ -68,12 +67,4 @@
     zoom: 1;
     filter: alpha(opacity=1);
     opacity: 0.8;
-}
-
-.SearchDiv {
-    z-index: 1;
-    width: 20%;
-    height: 20%;
-    background-color: gray;
-    margin: auto;
-}
+} */

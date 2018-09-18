@@ -26,12 +26,14 @@ const infoBar = (props) => {
         description = description.toUpperCase();
     }
 
+    let userUrl = props.userUrl;
+
     if (!props.fullView) {
         return(
             <div className={classes.RightBar}>
                 <div className={classes.SelDiv}>
                     {/* <p>PHOTOGRAPHER</p> */}
-                    <p href=''>{props.photographer.toUpperCase()} ON UNSPLASH.COM</p>
+                    <p href={userUrl}>{props.photographer.toUpperCase()} ON UNSPLASH.COM</p>
                     {/* <p>LOCATION</p> */}
                     <p>{location}</p>
                     {/* <p>DESCRIPTION</p> */}

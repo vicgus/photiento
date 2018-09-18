@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import classes from './MainView.css';
 import left from '../../assets/img/Left.jpeg';
-import back from '../../assets/icons/Left.svg'
  
 class MainView extends Component {
     render() {
@@ -54,11 +53,6 @@ class MainView extends Component {
                     <img 
                         src= {imgSource}
                         className={classes.Img} 
-                        onClick={this.props.back}
-                        alt='' />
-                    <img 
-                        src= {back}
-                        className={classes.Back} 
                         onClick={this.props.back}
                         alt='' />
                 </div>

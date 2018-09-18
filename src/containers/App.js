@@ -7,7 +7,6 @@ import FilterBar from '../components/FilterBar/FilterBar';
 import InfoBar from '../components/InfoBar/InfoBar';
 import NavBar from '../components/NavBar/NavBar';
 import MainView from '../components/MainView/MainView';
-import SearchDiv from '../components/SearchDiv/SearchDiv';
 import Image from '../components/Image/Image';
 import Query from '../components/Query/Query';
 import cred from '../utils/cred';
@@ -23,7 +22,7 @@ class App extends Component {
         id: 1
       },
       {
-        query: 'BEACH',
+        query: 'ART',
         id: 2
       },
       {
@@ -33,14 +32,6 @@ class App extends Component {
       {
         query: 'PARIS',
         id: 4
-      },
-      {
-        query: 'CINQUE TERRE',
-        id: 5
-      },
-      {
-        query: 'NULL',
-        id: 6
       }
      ],
     query: null,
@@ -76,7 +67,7 @@ class App extends Component {
     let location = this.state.images[index].user.location;
     let likes = this.state.images[index].likes;
     let description = this.state.images[index].description;
-    let userUrl = this.state.images[index].user.links.self;
+    let userUrl = this.state.images[index].user.links.html;
     this.setState( () => {
       return {
         fullView: !newView,
@@ -145,7 +136,8 @@ class App extends Component {
       this.setState((prevState) => {
         return {
           queryList: prevState.queryList.concat(newQuery),
-          query: newQuery.query
+          query: newQuery.query,
+          searchView: false
         };
       })
       this.inputElement.value='';
@@ -180,7 +172,7 @@ class App extends Component {
               placeholder= 'SEARCH'
               id={queryListLength}
               ref={(a) => this.inputElement=a} />
-          <button type='submit' className={classes.Button}>ADD</button>
+          <button type='submit' className={classes.Button}>ADD TAG</button>
           <img className={classes.Cross} 
               src={back} 
               alt='' 
