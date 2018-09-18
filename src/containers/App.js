@@ -10,7 +10,7 @@ import MainView from '../components/MainView/MainView';
 import Image from '../components/Image/Image';
 import Query from '../components/Query/Query';
 import cred from '../utils/cred';
-import classes from '../components/SearchDiv/SearchDiv.css';
+import classes from './App.css';
 import back from '../assets/icons/Cross.svg';
 
 class App extends Component {
@@ -194,7 +194,7 @@ class App extends Component {
             searchClick={() => this.toggleSearch()}/>
           {search}
           <MainView   
-            allImages={images} 
+            allImages={images}
             imageId={this.state.selectedImage} 
             fullView={this.state.fullView}
             back={() => this.getBackHandler()}
