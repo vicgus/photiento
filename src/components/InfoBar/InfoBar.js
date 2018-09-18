@@ -11,7 +11,6 @@ const infoBar = (props) => {
                 <div className={classes.SelDiv}>
                     <p>{imageCount} PHOTOS</p>
                 </div>
-                {/* <div className={classes.Line}></div> */}
         </div> 
         )
     }
@@ -27,21 +26,17 @@ const infoBar = (props) => {
     }
 
     let userUrl = props.userUrl;
+    console.log(userUrl);
 
     if (!props.fullView) {
         return(
             <div className={classes.RightBar}>
                 <div className={classes.SelDiv}>
-                    {/* <p>PHOTOGRAPHER</p> */}
-                    <p href={userUrl}>{props.photographer.toUpperCase()} ON UNSPLASH.COM</p>
-                    {/* <p>LOCATION</p> */}
+                    <p><a className={classes.User} href={userUrl}>{props.photographer.toUpperCase()}</a> ON UNSPLASH.COM</p>
                     <p>{location}</p>
-                    {/* <p>DESCRIPTION</p> */}
                     <p>{description}</p>
-                    <p></p>
                     <p><img src={heart} alt= ''/> {props.likes} </p>
                 </div>
-                {/* <div className={classes.Line}></div> */}
             </div>
         )
     }

@@ -1,9 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import classes from './SearchDiv.css';
 import back from '../../assets/icons/Cross.svg'
-
-//Add/style search div as a top row above the images
-//Welcome to site and if filterlist is empty -> have LOOK LEFT + skärmavbild from yesterday as image S7cyjr_3prc
 
 const searchDiv = (props) => {
         return(
