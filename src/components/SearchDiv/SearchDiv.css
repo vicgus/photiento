@@ -44,7 +44,7 @@
     cursor: pointer;
 }
 
-.Button:active {
+.Button:hover {
     background-color: #4c4c4c;
     color: white;
 }

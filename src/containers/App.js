@@ -173,7 +173,7 @@ class App extends Component {
               placeholder= 'SEARCH'
               id={queryListLength}
               ref={(a) => this.inputElement=a} />
-          <button type='submit' className={classes.Button}>ADD TAG</button>
+          <button type='submit' className={classes.Button}>ADD</button>
           <img className={classes.Cross} 
               src={back} 
               alt='' 
