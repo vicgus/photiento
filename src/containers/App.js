@@ -11,6 +11,8 @@ import SearchDiv from '../components/SearchDiv/SearchDiv';
 import Image from '../components/Image/Image';
 import Query from '../components/Query/Query';
 import cred from '../utils/cred';
+import classes from '../components/SearchDiv/SearchDiv.css';
+import back from '../assets/icons/Cross.svg';
 
 class App extends Component {
   state = {
@@ -21,7 +23,7 @@ class App extends Component {
         id: 1
       },
       {
-        query: 'josefin',
+        query: 'BEACH',
         id: 2
       },
       {
@@ -37,7 +39,7 @@ class App extends Component {
         id: 5
       },
       {
-        query: 'storm',
+        query: 'NULL',
         id: 6
       }
      ],
@@ -52,7 +54,6 @@ class App extends Component {
     description: null,
     userUrl: null,
   }
-
 
   componentDidUpdate() {
       if (this.state.query) {
@@ -133,6 +134,28 @@ class App extends Component {
     console.log(this.state.searchView);
   }
 
+  addQueryHandler = (event) => {
+    let newId = this.state.queryList.length+1;
+    if (this.inputElement.value !== '') {
+      let newQuery = {
+        query: this.inputElement.value.toUpperCase(),
+        id: newId
+      };
+
+      this.setState((prevState) => {
+        return {
+          queryList: prevState.queryList.concat(newQuery),
+          query: newQuery.query
+        };
+      })
+      this.inputElement.value='';
+    }
+    console.log(this.state.queryList);
+
+    event.preventDefault();
+  }
+
+
   render() {
     const images = this.state.images.map((img, index) => {
       return <Image smallUrl= {img.urls.small} 
@@ -148,7 +171,23 @@ class App extends Component {
                 clickRemove={() => this.removeQueryHandler(index)}/>
     });
 
-    let search = <SearchDiv back={() => this.toggleSearch()}/>
+    let queryListLength = this.state.queryList.length + 1;
+    let search = (
+      <form className={classes.SearchDiv} onSubmit={this.addQueryHandler}>
+          <input 
+              className={classes.Input} 
+              type='text'
+              placeholder= 'SEARCH'
+              id={queryListLength}
+              ref={(a) => this.inputElement=a} />
+          <button type='submit' className={classes.Button}>ADD</button>
+          <img className={classes.Cross} 
+              src={back} 
+              alt='' 
+              placeholder="type"
+              onClick={this.toggleSearch}/> 
+      </form>
+  )                
 
     if (!this.state.searchView) {
       search = null;

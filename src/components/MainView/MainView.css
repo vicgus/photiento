@@ -48,6 +48,7 @@
 
 .Back {
     margin: auto;
+    background-color: white;
     /* z-index: 1; */
     width: 80px;
     bottom: 45%;
@@ -66,7 +67,7 @@
 .Back:hover {
     zoom: 1;
     filter: alpha(opacity=1);
-    opacity: 1;
+    opacity: 0.8;
 }
 
 .SearchDiv {

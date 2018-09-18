@@ -13,65 +13,38 @@ class MainView extends Component {
             </div>
         );
 
-        const testImgArray = this.props.allImages.length;
-        console.log(testImgArray);
+        const columnLength = Math.floor(this.props.allImages.length/4) + 1;
 
-        const josefin = Math.floor(testImgArray/4);
-        console.log(josefin);
+        const allImages = this.props.allImages;
 
-        // const firstImgArray = this.props.allImages;
-        // firstImgArray.splice(0, 3*josefin);
-        // console.log(firstImgArray);
-        // const secondImgArray = this.props.allImages;
-        // secondImgArray.splice(josefin, 3*josefin);
-        // console.log(secondImgArray);
-        const victor = this.props.allImages;
+        const firstImgColumn = allImages.slice(0, columnLength);
 
-        const firstImgArray = victor.slice(0, josefin);
-        console.log(firstImgArray);
+        const secondImgColumn = allImages.slice(columnLength, 2*columnLength);
 
-        const secondImgArray = victor.slice(josefin, 2*josefin);
-        console.log(secondImgArray);
+        const thirdImgColumn = allImages.slice(2*columnLength, 3*columnLength);
 
-        const thirdImgArray = victor.slice(2*josefin, 3*josefin);
-        console.log(thirdImgArray);
-
-        const fourthImgArray = victor.slice(3*josefin, 4*josefin);
-        console.log(fourthImgArray);
+        const fourthImgColumn = allImages.slice(3*columnLength, 4*columnLength);
 
         if (this.props.fullView) {
             return(
                 <div className={classes.Main}>
                     <div className={classes.row}>
                         <div className={classes.column}>
-                            {firstImgArray}
+                            {firstImgColumn}
                         </div>
                         <div className={classes.column}>
-                            {secondImgArray}
+                            {secondImgColumn}
                         </div>
                         <div className={classes.column}>
-                            {thirdImgArray}
+                            {thirdImgColumn}
                         </div>
                         <div className={classes.column}>
-                            {fourthImgArray}
+                            {fourthImgColumn}
                         </div>
                     </div>
                 </div>
             )
         }
-
-        // if (this.props.fullView) {
-        //     return(
-        //         <div className={classes.Main}>
-        //             <div className={classes.ImgList}>
-        //                 {firstImgArray}
-        //                 {secondImgArray}
-        //                 {thirdImgArray}
-        //                 {fourthImgArray}
-        //             </div>
-        //         </div>
-        //     )
-        // }
 
         let imgSource = `https://source.unsplash.com/${this.props.imageId}`;
 
