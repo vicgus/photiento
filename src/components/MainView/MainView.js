@@ -4,13 +4,7 @@ import left from '../../assets/img/Left.jpeg';
  
 class MainView extends Component {
     render() {
-        let image = (        
-            <div className={classes.Main}>
-                <div className={classes.ImgList}>
-                    {left}
-                </div>
-            </div>
-        );
+        let image = null;
 
         const columnLength = Math.floor(this.props.allImages.length/4) + 1;
 
@@ -23,6 +17,18 @@ class MainView extends Component {
         const thirdImgColumn = allImages.slice(2*columnLength, 3*columnLength);
 
         const fourthImgColumn = allImages.slice(3*columnLength, 4*columnLength);
+        
+        if (this.props.welcome === 'LOOK LEFT' && this.props.fullView) {
+            image = (
+                <div className={classes.Main}>
+                    <img 
+                        src= {left}
+                        className={classes.Img} 
+                        onClick={this.props.back}
+                        alt='' />
+                </div>
+            );
+        }
 
         if (this.props.fullView) {
             return(

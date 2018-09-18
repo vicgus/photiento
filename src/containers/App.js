@@ -164,6 +164,7 @@ class App extends Component {
     });
 
     let queryListLength = this.state.queryList.length + 1;
+
     let search = (
       <form className={classes.SearchDiv} onSubmit={this.addQueryHandler}>
           <input 
@@ -198,7 +199,7 @@ class App extends Component {
             fullView={this.state.fullView}
             back={() => this.getBackHandler()}
             searchView={this.state.searchView}
-            welcomeTest={this.state.loadedQuery}/>
+            welcome={this.state.loadedQuery}/>
           <InfoBar  
             fullView={this.state.fullView} 
             photographer={this.state.photographer}
