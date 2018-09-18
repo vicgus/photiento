@@ -21,6 +21,7 @@
     margin-bottom: auto;
     display: block;
     transition: opacity .5s ease-in-out;
+    cursor: pointer;
 }
 
 .Img:hover {
