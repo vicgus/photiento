@@ -12,6 +12,16 @@
     right: 0px;
 }
 
+.WelcomeImg {
+    max-height: 70vh;
+    max-width: 74vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: block;
+}
+
 .Img {
     max-height: 70vh;
     max-width: 74vw;
@@ -25,7 +35,6 @@
 }
 
 .Img:hover {
-
     opacity: 0.5;
 }
 

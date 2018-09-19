@@ -38,12 +38,13 @@ class App extends Component {
     loadedQuery: 'LOOK LEFT',
     fullView: false,
     searchView: false,
-    selectedImage: 'S7cyjr_3prc',
+    selectedImage: null,
     photographer: 'NICK FEWINGS',
-    location: null,
-    likes: null,
-    description: null,
+    location: 'BOURNEMOUTH, UK',
+    likes: 203,
+    description: 'SELECTIVE FOCUS PHOTOGRAPHY OF WHITE ARROW SIGNAGE',
     userUrl: 'jannerboy62',
+    welcome: true
   }
 
   componentDidUpdate() {
@@ -92,7 +93,8 @@ class App extends Component {
     let newQueryUpper = newQuery.toUpperCase();
     this.setState({
       query: newQueryUpper,
-      fullView: true
+      fullView: true,
+      welcome: false
     });
     console.log(this.state.query);
   }
@@ -199,7 +201,8 @@ class App extends Component {
             fullView={this.state.fullView}
             back={() => this.getBackHandler()}
             searchView={this.state.searchView}
-            welcome={this.state.loadedQuery}/>
+            loadedQuery={this.state.loadedQuery}
+            welcome={this.state.welcome}/>
           <InfoBar  
             fullView={this.state.fullView} 
             photographer={this.state.photographer}

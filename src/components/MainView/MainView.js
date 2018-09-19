@@ -18,13 +18,12 @@ class MainView extends Component {
 
         const fourthImgColumn = allImages.slice(3*columnLength, 4*columnLength);
 
-        if (this.props.welcome && !this.props.fullView && this.props.imageId==='S7cyjr_3prc') {
+        if (this.props.welcome) {
             return(
                 <div className={classes.Main}>
                     <img 
                         src= {left}
-                        className={classes.Img} 
-                        onClick={this.props.back}
+                        className={classes.WelcomeImg}
                         alt='' />
                 </div>
             );
