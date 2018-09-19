@@ -36,14 +36,14 @@ class App extends Component {
      ],
     query: null,
     loadedQuery: 'LOOK LEFT',
-    fullView: true,
+    fullView: false,
     searchView: false,
-    selectedImage: null,
-    photographer: null,
+    selectedImage: 'S7cyjr_3prc',
+    photographer: 'NICK FEWINGS',
     location: null,
     likes: null,
     description: null,
-    userUrl: null,
+    userUrl: 'jannerboy62',
   }
 
   componentDidUpdate() {

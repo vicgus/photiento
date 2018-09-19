@@ -17,9 +17,9 @@ class MainView extends Component {
         const thirdImgColumn = allImages.slice(2*columnLength, 3*columnLength);
 
         const fourthImgColumn = allImages.slice(3*columnLength, 4*columnLength);
-        
-        if (this.props.welcome === 'LOOK LEFT' && this.props.fullView) {
-            image = (
+
+        if (this.props.welcome && !this.props.fullView && this.props.imageId==='S7cyjr_3prc') {
+            return(
                 <div className={classes.Main}>
                     <img 
                         src= {left}
