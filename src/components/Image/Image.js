@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Image.css'
 
+//Image container for each image in fullview/imagelist.
 const image = (props) => {
     return (
             <img 

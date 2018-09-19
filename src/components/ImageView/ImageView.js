@@ -4,6 +4,7 @@ import axios from 'axios';
 import img from '../../assets/img/5.png';
 import cred from '../../utils/cred'
 
+// NOT IN USE ATM. WAITING FOR PRODUCTION APPROVAL FROM UNSPLASH.
 class ImageView extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +17,6 @@ class ImageView extends Component {
         if (this.props.id) {
             if (!this.state.loadedImage || (this.state.loadedImage && this.state.loadedImage.id !== this.props.id)) {
                 axios.get(`https://api.unsplash.com/photos/${this.state.loadedImage}&client_id=${cred.appId}`)
-                // axios.get(`https://api.unsplash.com/photos/${this.props.id}`)
                     .then(response => {
                         console.log(response);
                         this.setState({loadedImage: response})
@@ -56,5 +56,3 @@ class ImageView extends Component {
 
 
 export default ImageView;
-
-///static/media/1.53d4252e.png

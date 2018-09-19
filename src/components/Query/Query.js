@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Query.css'
 import cross from '../../assets/icons/Cross.svg';
 
+//Container for the queries.
 const query = (props) => {
     return (
         <div>

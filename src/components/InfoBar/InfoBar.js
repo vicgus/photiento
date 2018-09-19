@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './InfoBar.css';
 import heart from '../../assets/icons/Heart.svg';
 
+//Container for meta information about each tag in listed images view and each image in imageView.
 const infoBar = (props) => {
     let imageCount = props.allImages.length;
 

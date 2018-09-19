@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './FilterBar.css';
 import searchicon from '../../assets/icons/Search.svg';
 
+//Receives all queries as props and makes them selectable and deletable. Magnifying glass image to enable tag search.
 const filterBar = (props) => {
     return(
         <div className={classes.LeftBar} align={"center"}>
@@ -13,7 +14,6 @@ const filterBar = (props) => {
             <div className={classes.SelDiv} >
                 {props.allQueries}
             </div>
-            {/* <div className={classes.Line}></div> */}
         </div>
     )
 }

@@ -40,9 +40,9 @@ class App extends Component {
     searchView: false,
     selectedImage: null,
     photographer: 'NICK FEWINGS',
-    location: 'BOURNEMOUTH, UK',
-    likes: 203,
-    description: 'SELECTIVE FOCUS PHOTOGRAPHY OF WHITE ARROW SIGNAGE',
+    location: null,
+    likes: null,
+    description: null,
     userUrl: 'jannerboy62',
     welcome: true
   }
@@ -139,7 +139,8 @@ class App extends Component {
         return {
           queryList: prevState.queryList.concat(newQuery),
           query: newQuery.query,
-          searchView: false
+          searchView: false,
+          fullView: true
         };
       })
       this.inputElement.value='';
@@ -148,7 +149,6 @@ class App extends Component {
 
     event.preventDefault();
   }
-
 
   render() {
     const images = this.state.images.map((img, index) => {

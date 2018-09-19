@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import classes from './MainView.css';
 import left from '../../assets/img/Left.jpeg';
- 
+
+//Mainview shows either the grid of images or the image in full. To accomplish the grid, the list of images, 
+//{images}, is divided in four separate lists below. The welcome image is for the time being hardcoded, until I
+//get production access at unsplash.
 class MainView extends Component {
     render() {
         let image = null;
@@ -26,7 +29,7 @@ class MainView extends Component {
                         className={classes.WelcomeImg}
                         alt='' />
                 </div>
-            );
+            );  
         }
 
         if (this.props.fullView) {
